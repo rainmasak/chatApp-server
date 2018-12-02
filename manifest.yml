@@ -1,0 +1,13 @@
+---
+applications:
+- name: chat-server
+  memory: 240MB
+  instances: 1
+  buildpack: java_buildpack
+  path: ./target/chatApp-1.0.war
+  routes:
+  - route: chat-server.apic.eu-gb.mybluemix.net
+  env:
+   TZ: EET
+   JBP_CONFIG_TOMCAT: '{tomcat: { version: 8.0.+ }}'
+   JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 1.8.0_+ }}'
